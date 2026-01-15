@@ -1,188 +1,428 @@
-# 🔍 FINDX - AI-Powered Lost & Found Platform
+<p align="center">
+  <img src="frontend/assets/icon/app_icon.png" alt="FindX Logo" width="120" height="120"/>
+</p>
 
-<div align="center">
+<h1 align="center">🔍 FindX</h1>
+<h3 align="center">AI-Powered Lost & Found Platform</h3>
 
-![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
-![Firebase](https://img.shields.io/badge/Firebase-10.7-orange?style=for-the-badge&logo=firebase)
-![Gemini AI](https://img.shields.io/badge/Gemini-AI-purple?style=for-the-badge&logo=google)
-![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)
+<p align="center">
+  <strong>Reuniting people with their lost belongings using the power of Google Gemini AI</strong>
+</p>
 
-**Reunite people with their lost belongings using the power of AI**
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase"/>
+  <img src="https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini"/>
+  <img src="https://img.shields.io/badge/Google%20Maps-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Maps"/>
+</p>
 
-[Live Demo](https://findx.vercel.app) · [Report Bug](https://github.com/MUTHUKUMARAN-K-1/FINDX/issues) · [Request Feature](https://github.com/MUTHUKUMARAN-K-1/FINDX/issues)
+<p align="center">
+  <a href="#-demo">Demo</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-setup">Setup</a> •
+  <a href="#-google-technologies">Google Tech</a>
+</p>
 
-</div>
+---
+
+## 🎯 Problem Statement
+
+**Every year, millions of items are lost worldwide**, with an estimated **$30 billion+ in value** going unreturned. Traditional lost & found systems are:
+- 📍 Location-limited (only work within a single organization)
+- 🔍 Manually operated with no smart matching
+- 📱 Not mobile-friendly
+- 🔗 Disconnected from modern communication tools
+- 🚔 No integration with authorities
+
+**FindX solves this** with AI-powered item matching, real-time location tracking, and seamless police integration.
+
+---
+
+## 🚀 Demo
+
+| 📱 Mobile App | 📊 Analytics Dashboard |
+|---------------|------------------------|
+| [Download APK](https://github.com/kathirvel123/FindX/releases) | [Live Dashboard](https://findx-dashboard.vercel.app) |
+
+### Video Demo
+▶️ [Watch on YouTube](https://youtube.com/watch?v=YOUR_VIDEO_ID)
 
 ---
 
 ## ✨ Features
 
+### 🤖 AI-Powered Features (Google Gemini)
+
 | Feature | Description |
 |---------|-------------|
-| 🤖 **AI Image Analysis** | Automatic item categorization and description using Google Gemini |
-| 🎤 **Voice Input** | Hands-free reporting with speech recognition |
-| 🗺️ **Location Matching** | GPS-based matching to find items near you |
-| 🔔 **Smart Notifications** | Get alerted when potential matches are found |
-| 🔒 **Secure Claims** | Verification questions to ensure rightful ownership |
-| 🌙 **Dark Mode** | Beautiful UI with light/dark theme support |
-| 📱 **Responsive** | Works seamlessly on desktop, tablet, and mobile |
+| **Smart Item Analysis** | Gemini AI automatically identifies and categorizes items from photos |
+| **AI Matching Engine** | Finds potential matches between lost and found items with confidence scores |
+| **Voice-to-Text Reporting** | Report items using voice commands |
+| **Natural Language Search** | Search using conversational queries |
+
+### 📍 Location & Maps (Google Maps Platform)
+
+| Feature | Description |
+|---------|-------------|
+| **Real-time Location Tracking** | Automatic location detection when reporting |
+| **Nearby Alerts** | Push notifications for items found near you |
+| **Location Heatmap** | Visualize hotspots for lost/found items |
+| **Proximity Search** | Find items within a specific radius |
+
+### 🔥 Firebase Integration
+
+| Service | Usage |
+|---------|-------|
+| **Authentication** | Google Sign-In, Email/Password |
+| **Cloud Firestore** | Real-time database for items, users, chats |
+| **Cloud Storage** | Image storage with CDN delivery |
+| **Cloud Messaging (FCM)** | Push notifications for matches and alerts |
+
+### 👮 Police Integration (India)
+
+| Feature | Description |
+|---------|-------------|
+| **Emergency Contacts** | One-tap dial to Police (100), Women Helpline (1091) |
+| **State Portals** | Quick links to all 28 state police portals |
+| **CEIR Integration** | Report lost mobile phones to national database |
+| **FIR Draft Generator** | AI-generated First Information Report draft |
+
+### 🏆 Gamification & Social
+
+| Feature | Description |
+|---------|-------------|
+| **Karma Points System** | Earn points for reporting, finding, and returning items |
+| **5 Achievement Levels** | Newcomer → Helper → Guardian → Hero → Legend |
+| **Instagram Poster Generator** | Create shareable lost/found posters |
+| **Real-time Chat** | Direct messaging between finders and owners |
 
 ---
 
-## 🚀 Quick Start
+## 🏗 Architecture
 
-### Prerequisites
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           FINDX ARCHITECTURE                             │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│    ┌──────────────────┐     ┌──────────────────┐     ┌───────────────┐ │
+│    │   Flutter App    │     │  Next.js         │     │    Admin      │ │
+│    │   (Android/iOS)  │     │  Dashboard       │     │    Console    │ │
+│    └────────┬─────────┘     └────────┬─────────┘     └───────┬───────┘ │
+│             │                        │                        │         │
+│             └────────────────────────┼────────────────────────┘         │
+│                                      │                                   │
+│                          ┌───────────▼───────────┐                      │
+│                          │     Firebase Suite    │                      │
+│                          └───────────┬───────────┘                      │
+│                                      │                                   │
+│    ┌─────────────────────────────────┼─────────────────────────────────┐│
+│    │                                 │                                  ││
+│    │  ┌──────────┐ ┌──────────┐ ┌────┴─────┐ ┌──────────┐ ┌──────────┐ ││
+│    │  │   Auth   │ │Firestore │ │ Storage  │ │   FCM    │ │ Hosting  │ ││
+│    │  └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘ ││
+│    │                                                                    ││
+│    └────────────────────────────────────────────────────────────────────┘│
+│                                      │                                   │
+│                          ┌───────────▼───────────┐                      │
+│                          │   Google Cloud APIs   │                      │
+│                          └───────────┬───────────┘                      │
+│                                      │                                   │
+│    ┌─────────────────────────────────┼─────────────────────────────────┐│
+│    │                                 │                                  ││
+│    │  ┌──────────┐ ┌──────────┐ ┌────┴─────┐ ┌──────────┐              ││
+│    │  │  Gemini  │ │  Maps    │ │ Places   │ │ Geocoding│              ││
+│    │  │   AI     │ │Platform  │ │   API    │ │   API    │              ││
+│    │  └──────────┘ └──────────┘ └──────────┘ └──────────┘              ││
+│    │                                                                    ││
+│    └────────────────────────────────────────────────────────────────────┘│
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+```
 
-- Node.js 18+ 
-- npm or yarn
-- Firebase account
-- Google Gemini API key
+### Data Flow
 
-### Installation
+```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant Gemini
+    participant Firebase
+    participant Maps
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/MUTHUKUMARAN-K-1/FINDX.git
-   cd FINDX
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   
-   Copy the example environment file:
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Fill in your credentials in `.env.local`:
-   ```env
-   # Firebase Configuration
-   NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
-   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-   NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
-   
-   # Google Gemini AI
-   NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_api_key
-   ```
-
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser**
-   
-   Navigate to [http://localhost:3000](http://localhost:3000)
+    User->>App: Upload item photo
+    App->>Gemini: Analyze image
+    Gemini-->>App: Return category, tags, description
+    App->>Maps: Get current location
+    Maps-->>App: Return coordinates + place name
+    App->>Firebase: Save item to Firestore
+    Firebase-->>App: Confirm save
+    App->>Firebase: Query matching items
+    Firebase-->>App: Return potential matches
+    App->>Gemini: Analyze match similarity
+    Gemini-->>App: Return confidence scores
+    App-->>User: Display matches with scores
+```
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
-- **Framework**: [Next.js 14](https://nextjs.org/) with App Router
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Authentication**: [Firebase Auth](https://firebase.google.com/docs/auth)
-- **Database**: [Cloud Firestore](https://firebase.google.com/docs/firestore)
-- **Storage**: [Firebase Storage](https://firebase.google.com/docs/storage)
-- **AI**: [Google Gemini](https://ai.google.dev/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
+### Mobile Application
+| Technology | Purpose |
+|------------|---------|
+| **Flutter 3.10+** | Cross-platform UI framework |
+| **Dart 3.0+** | Programming language |
+| **flutter_bloc** | State management |
+| **go_router** | Declarative navigation |
+
+### Google Technologies ⭐
+| Technology | Purpose | Integration Depth |
+|------------|---------|-------------------|
+| **Google Gemini AI** | Image analysis, matching, text generation | Core Feature |
+| **Firebase Auth** | User authentication | Core Feature |
+| **Cloud Firestore** | Real-time database | Core Feature |
+| **Firebase Storage** | Image storage | Core Feature |
+| **Firebase Cloud Messaging** | Push notifications | Core Feature |
+| **Google Maps SDK** | Map visualization | Core Feature |
+| **Google Places API** | Location autocomplete | Core Feature |
+| **Geocoding API** | Reverse geocoding | Core Feature |
+
+### Web Dashboard
+| Technology | Purpose |
+|------------|---------|
+| **Next.js 14** | React framework |
+| **Tailwind CSS** | Styling |
+| **Chart.js** | Data visualization |
+| **Vercel** | Hosting |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-findx/
-├── src/
-│   ├── app/                 # Next.js App Router pages
-│   │   ├── item/[id]/       # Item detail page
-│   │   ├── matches/         # Matches page
-│   │   ├── my-items/        # User's items
-│   │   ├── notifications/   # Notifications
-│   │   ├── profile/         # User profile
-│   │   ├── report/          # Report lost/found items
-│   │   ├── search/          # Search page
-│   │   └── settings/        # Settings
-│   ├── components/          # Reusable components
-│   │   ├── features/        # Feature components
-│   │   ├── layout/          # Layout components
-│   │   └── ui/              # UI components
-│   ├── contexts/            # React contexts
-│   ├── hooks/               # Custom hooks
-│   ├── lib/                 # Utilities & configs
-│   └── types/               # TypeScript types
-├── public/                  # Static assets
-└── ...config files
+FindX/
+├── 📱 frontend/               # Flutter mobile app
+│   ├── lib/
+│   │   ├── api/              # Repository layer
+│   │   ├── blocs/            # BLoC state management
+│   │   ├── models/           # Data models
+│   │   ├── screens/          # UI screens
+│   │   │   ├── auth/         # Login, Register
+│   │   │   ├── home/         # Main feed
+│   │   │   ├── lost_item/    # Report lost item
+│   │   │   ├── found_item/   # Report found item
+│   │   │   ├── item_details/ # Item details + AI matching
+│   │   │   ├── chat/         # Messaging
+│   │   │   ├── profile/      # User profile + Karma
+│   │   │   └── settings/     # App settings
+│   │   ├── services/         # Business logic services
+│   │   │   ├── gemini_service.dart      # Gemini AI
+│   │   │   ├── ai_matching_service.dart # AI matching
+│   │   │   ├── karma_service.dart       # Karma points
+│   │   │   ├── police_service.dart      # Police integration
+│   │   │   └── fcm_service.dart         # Push notifications
+│   │   └── widgets/          # Reusable components
+│   └── assets/               # Images, icons
+│
+├── 📊 dashboard/             # Next.js analytics dashboard
+│   ├── app/
+│   │   ├── page.tsx          # Main dashboard
+│   │   ├── items/            # Items management
+│   │   └── heatmap/          # Location heatmap
+│   └── lib/
+│       └── firebase.ts       # Firebase config
+│
+├── 🔒 firestore.rules        # Security rules
+├── 📄 firebase.json          # Firebase config
+└── 📖 README.md              # This file
 ```
 
 ---
 
-## 🌐 Deployment
+## ⚙️ Setup Instructions
 
-### Deploy to Vercel
+### Prerequisites
+- Flutter 3.10+ ([Install](https://flutter.dev/docs/get-started/install))
+- Node.js 18+ ([Install](https://nodejs.org))
+- Firebase CLI ([Install](https://firebase.google.com/docs/cli))
+- Google Cloud account with billing enabled
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/MUTHUKUMARAN-K-1/FINDX)
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/kathirvel123/FindX.git
+cd FindX
+```
 
-1. Click the button above or go to [vercel.com](https://vercel.com)
-2. Import your GitHub repository
-3. Add environment variables in the Vercel dashboard
-4. Deploy!
+### 2️⃣ Set Up Firebase
+```bash
+# Install Firebase CLI
+npm install -g firebase-tools
 
-> **Important**: After deployment, add your Vercel domain to Firebase Authentication's authorized domains.
+# Login to Firebase
+firebase login
+
+# Create a new project (or use existing)
+firebase projects:create findx-app
+
+# Initialize Firebase
+firebase init
+```
+
+### 3️⃣ Configure Environment Variables
+
+**Flutter App (`frontend/.env`)**
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+**Get your Gemini API key:** [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+**Dashboard (`dashboard/.env.local`)**
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+```
+
+### 4️⃣ Run Flutter App
+```bash
+cd frontend
+flutter pub get
+flutter run
+```
+
+### 5️⃣ Run Dashboard
+```bash
+cd dashboard
+npm install
+npm run dev
+```
+Open http://localhost:3000
+
+### 6️⃣ Deploy
+
+**Deploy Firestore Rules**
+```bash
+firebase deploy --only firestore:rules
+```
+
+**Deploy Dashboard to Vercel**
+```bash
+cd dashboard
+npx vercel --prod
+```
 
 ---
 
-## 📄 Environment Variables
+## 🔐 Security
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase API key | ✅ |
-| `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase auth domain | ✅ |
-| `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Firebase project ID | ✅ |
-| `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` | Firebase storage bucket | ✅ |
-| `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` | Firebase messaging sender ID | ✅ |
-| `NEXT_PUBLIC_FIREBASE_APP_ID` | Firebase app ID | ✅ |
-| `NEXT_PUBLIC_GEMINI_API_KEY` | Google Gemini API key | ✅ |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License.
+### Firestore Security Rules
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Items: Public read, auth write
+    match /items/{itemId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth.uid == resource.data.userId;
+    }
+    
+    // Users: Owner only
+    match /users/{userId} {
+      allow read, write: if request.auth.uid == userId;
+    }
+    
+    // Chats: Participants only
+    match /chats/{chatId} {
+      allow read, write: if request.auth.uid in resource.data.participants;
+    }
+  }
+}
+```
 
 ---
 
-## 👨‍💻 Author
+## 📊 Google Technology Integration Summary
 
-**Muthukumaran K**
+| Technology | Integration Points | Lines of Code |
+|------------|-------------------|---------------|
+| **Google Gemini AI** | Image analysis, AI matching, FIR generation | 500+ |
+| **Firebase Auth** | Google Sign-In, Email auth, Anonymous | 200+ |
+| **Cloud Firestore** | Items, Users, Chats, Notifications | 400+ |
+| **Firebase Storage** | Item images, Proof photos | 100+ |
+| **FCM** | Push notifications, Nearby alerts | 200+ |
+| **Google Maps SDK** | Map view, Location picker | 150+ |
+| **Places API** | Location search, Autocomplete | 100+ |
+| **Geocoding API** | Reverse geocoding | 50+ |
 
-- GitHub: [@MUTHUKUMARAN-K-1](https://github.com/MUTHUKUMARAN-K-1)
+**Total Google Tech Integration: 1,700+ lines of code**
 
 ---
 
-<div align="center">
+## 📈 Impact & Scalability
 
-⭐ **If you found this project helpful, please give it a star!** ⭐
+### Social Impact
+- 🌍 **Global Problem**: Lost & found is a universal issue
+- 💰 **Economic Impact**: Billions lost annually in unreturned items
+- 🤝 **Community Building**: Connects finders with owners
+- 🚔 **Safety**: Police integration for stolen items
 
-</div>
+### Scalability
+- ☁️ **Serverless**: Firebase handles auto-scaling
+- 📱 **Cross-Platform**: One codebase for Android, iOS, Web
+- 🌐 **Multi-Region**: Firebase global edge network
+- 📊 **Analytics**: Real-time dashboard for monitoring
+
+### Target Users
+- 🏫 Universities & campuses
+- 🛫 Airports & transit hubs
+- 🏢 Corporate offices
+- 🏥 Hospitals
+- 🛒 Shopping malls
+- 🏛️ Government offices
+
+---
+
+## 👥 Team
+
+| Name | Role | GitHub |
+|------|------|--------|
+| **Kathirvel** | Lead Developer | [@kathirvel123](https://github.com/kathirvel123) |
+| **Muthukumaran K** | Developer | [@MUTHUKUMARAN-K-1](https://github.com/MUTHUKUMARAN-K-1) |
+
+---
+
+## 🏆 Judging Criteria Alignment
+
+| Criteria | Points | Our Strengths |
+|----------|--------|---------------|
+| **Innovation & Creativity** | 20 | AI-powered matching, Karma gamification, Police integration |
+| **Technical Implementation** | 20 | Clean architecture, BLoC pattern, Real-time features |
+| **Effective Google Tech Use** | 20 | 8+ Google services deeply integrated |
+| **Social Impact** | 15 | Solves real-world problem, Community-focused |
+| **Feasibility & Scalability** | 15 | Serverless architecture, Proven tech stack |
+| **Pitching & Demo** | 10 | Live demo, Video walkthrough |
+| **BONUS: Prototype** | +5 | Fully functional app with dashboard |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  <strong>Built with ❤️ using Google Technologies</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20for-Google%20Hackathon-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Hackathon"/>
+</p>
